@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaTeX zu Karteikarten Konverter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>LaTeX zu Karteikarten Konverter</h1>
+
+        </header>
+
+        <div class="upload-section">
+            <div class="upload-box" id="uploadBox">
+                <input type="file" id="fileInput" accept=".tex,.latex" hidden>
+                <div class="upload-content">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <h3>LaTeX-Datei hier ablegen</h3>
+                    <p>oder klicken zum Auswählen</p>
+                    <span class="file-info" id="fileInfo"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls" id="controls" style="display: none;">
+            <button id="generateBtn" class="btn btn-primary">Karteikarten generieren</button>
+            <button id="resetBtn" class="btn btn-secondary">Zurücksetzen</button>
+        </div>
+
+        <div class="controls" id="pdfControls" style="display: none;">
+            <button id="downloadPdfBtn" class="btn btn-primary">📄 PDF herunterladen</button>
+        </div>
+
+        <div class="stats" id="stats" style="display: none;">
+            <p>Anzahl Karteikarten: <span id="cardCount">0</span></p>
+        </div>
+
+        <div class="prompt-section">
+            <h3>ChatGPT Prompt für Karteikarten</h3>
+            <div class="prompt-container">
+                <textarea id="chatgptPrompt" readonly class="prompt-textarea"></textarea>
+                <button id="copyPromptBtn" class="btn btn-primary">Prompt kopieren</button>
+            </div>
+        </div>
+
+        <div class="cards-container" id="cardsContainer"></div>
+    </div>
+
+    <!-- KaTeX für mathematische Formeln -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
